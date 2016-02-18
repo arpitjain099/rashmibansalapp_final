@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script type="text/javascript" src="url.js"></script>
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="jquery-1.11.1.min.js"></script>
+  
+
+  <!-- Include the jQuery Mobile library -->
+  <script src="jquery.mobile-1.4.5.min.js"></script>
+  <script>
+      //alert(document.getElementById("student").checked);
+      
+
+
+</script>
+
+<script type="text/javascript">
+  
+function loadXMLDoc()
+{
+
+
+$.post(url.concat("/rashmibansal_backend/freelancersignupsubmission.php"), { 
+  name: document.getElementById("signupform").elements[0].value,
+ password: document.getElementById("signupform").elements[2].value,
+  emailid:document.getElementById("signupform").elements[1].value} )
+.done(function( data ) {
+  if(data=='User already exists! Try logging in!'){alert("User already exists!");window.location.assign("freelancersignup.html");}
+  else if(data=='User registered!')
+    {alert("Signup successful");
+ window.location.assign("index.html");
+}else{alert(data);window.location.assign("index.html");}
+    
+    
+  });//alert(sts);
+}
+</script>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+<script>
+
+</script>
+<div data-role="fieldcontain">
+<form id="signupform">
+
+    <label for="name">Name</label>
+    <input type="text"  id="name" value=""/>
+
+    <label for="name">E-Mail *</label>
+    <input type="text" id="email" value=""  required/>
+
+    <label for="name">Password * </label>
+    <input type="password"  id="password" value=""  required/>
+
+
+  
+    
+    
+    <input type="submit" value="Sign up" onclick="loadXMLDoc()">
+  </form>
+
+</div>  
+
+
+  
+</div> 
+
+</body>
+</html>
